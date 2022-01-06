@@ -284,5 +284,8 @@ register_concept!(
     NDVISchema,
     NBRSchema,
     PolygonCollectionStatsUnionSchema,
-    PolygonCollectionStatsFilterSchema
+    PolygonCollectionStatsFilterSchema,
+    CrownHullAsset,
+    TAOExternalCrownHullSchema,
+    EcObjectCollectionAsset
 );

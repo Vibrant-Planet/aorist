@@ -1,5 +1,7 @@
 mod asset;
+mod crown_hull_asset;
 mod fasttext_embedding;
+mod ecobject_collection_asset;
 mod geospatial_asset;
 mod graph_asset;
 mod grid_perspective_transform_asset;
@@ -23,7 +25,9 @@ mod text_corpus;
 mod vision_asset;
 
 pub use asset::*;
+pub use crown_hull_asset::*;
 pub use fasttext_embedding::*;
+pub use ecobject_collection_asset::*;
 pub use geospatial_asset::*;
 pub use graph_asset::*;
 pub use grid_perspective_transform_asset::*;

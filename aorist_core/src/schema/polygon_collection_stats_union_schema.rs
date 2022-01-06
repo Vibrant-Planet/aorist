@@ -12,18 +12,14 @@ use pyo3::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
 use uuid::Uuid;
+use crate::schema::{DerivedAssetSchema, MultipleSourceDerivedAssetSchema};
 
 derived_schema! {
     name: PolygonCollectionStatsUnionSchema,
-    sources: 
-        - first: PolygonCollectionAsset,
-        - second: PolygonCollectionAsset,
+    sources: GeospatialAsset,
     attributes:
       id: KeyStringIdentifier("Polygon Identifier", false),
       name: FreeText("Polygon name", true),
       wkt: WKTString("WKT string", false),
       stats: JSON("JSON string of stats", false)
-    fields:
-      first_stats_prefix: String,
-      second_stats_prefix: String
 }

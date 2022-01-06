@@ -15,12 +15,13 @@ use std::fmt::Debug;
 use uuid::Uuid;
 
 derived_schema! {
-    name: RasterFromPointCloudSchema,
+    name: PointCloudIndexSchema,
     source: PointCloudAsset,
     attributes:
-      path: KeyStringIdentifier("File Path", false)
-    fields:
-      pdal_pipeline: Option<String>,
-      lidr_call: Option<String>,
-      window_size: FloatValue
+      path: KeyStringIdentifier("File Path", false),
+      minx: FloatLongitude("Bbox min x value", false),
+      miny: FloatLatitude("Bbox min y value", false),
+      maxx: FloatLongitude("Bbox max x value", false),
+      maxy: FloatLatitude("Bbox max y value", false),
+      json: FreeText("JSON for pdal info", false)
 }

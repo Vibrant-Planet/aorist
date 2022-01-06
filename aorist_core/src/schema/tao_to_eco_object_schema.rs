@@ -16,7 +16,7 @@ use uuid::Uuid;
 derived_schema! {
     name: TAOToEcoObjectSchema,
     sources:
-      - taos: PolygonCollectionAsset,
+      - taos: CrownHullAsset,
       - adjacency: SimpleUndirectedGraphAsset,
     attributes:
       path: KeyStringIdentifier("TAO File Path", false),
@@ -25,7 +25,11 @@ derived_schema! {
       wkt: WKTString("WKT string of TAO boundary", false),
       metrics: JSON("JSON map of metrics", false)
     fields:
-      pruning_threshold: FloatValue,
+      tao_height_attribute: String,
+      min_num_trees_for_adjacency: usize,
+      min_height: FloatValue,
+      proportion_of_seed_height_for_valid_non_seed: FloatValue,
       max_neck_size: FloatValue,
-      minimum_mapping_area: FloatValue
+      min_crown_width_for_singleton: FloatValue,
+      ecobject_hull_concavity_param: FloatValue
 }

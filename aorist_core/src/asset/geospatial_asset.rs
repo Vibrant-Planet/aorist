@@ -17,6 +17,8 @@ use uuid::Uuid;
 asset_enum! {
     name: GeospatialAsset
     variants:
+    - CrownHullAsset
+    - EcObjectCollectionAsset
     - GridPerspectiveTransformAsset
     - RasterAsset
     - PointCloudAsset

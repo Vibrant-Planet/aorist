@@ -16,7 +16,7 @@ use uuid::Uuid;
 
 derived_schema! {
     name: AdjacentPolygonsSchema,
-    source: PolygonCollectionAsset,
+    source: GeospatialAsset,
     attributes:
       id1: KeyInt64Identifier("Polygon 1 Identifier", false),
       id2: KeyInt64Identifier("Polygon 2 Identifier", false)
