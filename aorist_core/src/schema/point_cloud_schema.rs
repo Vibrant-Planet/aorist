@@ -15,5 +15,18 @@ use uuid::Uuid;
 primary_schema! {
     name: PointCloudSchema,
     attributes:
-      prefix: KeyStringIdentifier("File Prefix", false)
+      X: Int64("X", false),
+      Y: Int64("Y", false),
+      Z: Int64("Z", false),
+      intensity: NaturalNumber("Intensity", true),
+      bit_fields: Int64("Bitflags: ReturnNumber, NumberOfReturns, ScanDirection, EdgeOfFlightLine", false),
+      raw_classification: Factor("Classification", false),
+      scan_angle_rank: IntegerNumber("Scan angle rank (-90 to + 90) - Left side", false),
+      user_data: IntegerNumber("User data", true),
+      point_source_id: NumericIdentifier("Point source ID", false),
+      gps_time: FloatNumber("GPS time", false),
+      red: IntegerNumber("Red channel", false),
+      green: IntegerNumber("Green channel", false),
+      blue: IntegerNumber("Blue channel", false)
+
 }

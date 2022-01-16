@@ -22,5 +22,6 @@ derived_schema! {
     fields:
       pdal_pipeline: Option<String>,
       lidr_call: Option<String>,
-      window_size: FloatValue
+      window_size: FloatValue,
+      resolution: FloatValue
 }

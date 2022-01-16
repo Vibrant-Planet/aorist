@@ -26,10 +26,13 @@ derived_schema! {
       metrics: JSON("JSON map of metrics", false)
     fields:
       tao_height_attribute: String,
+      tao_height_multiplier: FloatValue,
       min_num_trees_for_adjacency: usize,
-      min_height: FloatValue,
+      min_height: usize,
       proportion_of_seed_height_for_valid_non_seed: FloatValue,
       max_neck_size: FloatValue,
       min_crown_width_for_singleton: FloatValue,
-      ecobject_hull_concavity_param: FloatValue
+      ecobject_hull_concavity_param: FloatValue,
+      ecobject_hull_douglas_peuker_epsilon: FloatValue,
+      triangulation_quality_mesh_max_area: FloatValue
 }
