@@ -16,7 +16,7 @@ use uuid::Uuid;
 derived_schema! {
     name: PolygonCollectionZonalStatsSchema,
     sources:
-    - collection: PolygonCollectionAsset,
+    - collection: GeospatialAsset,
     - raster: RasterAsset,
     attributes:
       id: KeyStringIdentifier("Polygon Identifier", false),

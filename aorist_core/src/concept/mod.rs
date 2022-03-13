@@ -287,5 +287,11 @@ register_concept!(
     PolygonCollectionStatsFilterSchema,
     CrownHullAsset,
     TAOExternalCrownHullSchema,
-    EcObjectCollectionAsset
+    EcObjectCollectionAsset,
+    GriddedRasterSchema,
+    ReprojectedPointCloudSchema,
+    GriddedPointCloudSchema,
+    WaterBodiesSchema,
+    BuildingOutlineSchema,
+    GeoJSONEncoding
 );

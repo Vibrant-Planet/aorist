@@ -13,10 +13,9 @@ use std::fmt::Debug;
 use uuid::Uuid;
 
 primary_schema! {
-    name: TAOExternalCrownHullSchema,
+    name: BuildingOutlineSchema,
     attributes:
-      path: KeyStringIdentifier("File Path", false),
-      tao_id: KeyInt64Identifier("ID of TAO (unique in file)", false),
-      wkt: WKTString("WKT string of TAO boundary", false),
-      stats: JSON("JSON map of metrics", false)
+      id: KeyStringIdentifier("Polygon Identifier", false),
+      name: FreeText("Polygon name", true),
+      wkt: WKTString("WKT string", false)
 }

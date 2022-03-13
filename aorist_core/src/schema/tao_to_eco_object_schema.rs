@@ -18,6 +18,8 @@ derived_schema! {
     sources:
       - taos: CrownHullAsset,
       - adjacency: SimpleUndirectedGraphAsset,
+      - buildings: PolygonCollectionAsset,
+      - water_bodies: PolygonCollectionAsset,
     attributes:
       path: KeyStringIdentifier("TAO File Path", false),
       tao_id: KeyInt64Identifier("ID of TAO (unique in file)", false),

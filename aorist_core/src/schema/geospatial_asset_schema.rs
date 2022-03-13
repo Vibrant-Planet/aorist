@@ -1,7 +1,10 @@
 use crate::attributes::*;
 use crate::concept::{AoristConcept, AoristRef, ConceptEnum, WrappedConcept};
 use crate::schema::adjacent_polygons_schema::*;
+use crate::schema::building_outline_schema::*;
 use crate::schema::gdal_fillnodata_schema::*;
+use crate::schema::gridded_raster_schema::*;
+use crate::schema::gridded_point_cloud_schema::*;
 use crate::schema::labeled_point_cloud_schema::*;
 use crate::schema::linz_primary_parcels_schema::*;
 use crate::schema::linz_property_titles_schema::*;
@@ -30,6 +33,7 @@ use crate::schema::raster_difference_schema::*;
 use crate::schema::raster_from_point_cloud_schema::*;
 use crate::schema::raster_polygon_intersection_schema::*;
 use crate::schema::raster_schema::*;
+use crate::schema::reprojected_point_cloud_schema::*;
 use crate::schema::tao_crown_hull_filter_schema::*;
 use crate::schema::tao_crown_hull_schema::*;
 use crate::schema::tao_external_crown_hull_schema::*;
@@ -39,6 +43,7 @@ use crate::schema::tao_marker_controlled_watershed_segmentation_schema::*;
 use crate::schema::tao_to_eco_object_schema::*;
 use crate::schema::tao_watershed_segmentation_schema::*;
 use crate::schema::tree_detection_schema::*;
+use crate::schema::water_bodies_schema::*;
 use crate::template::*;
 use aorist_concept::{aorist, Constrainable};
 use aorist_paste::paste;
@@ -53,7 +58,10 @@ schema_enum! {
     name: GeospatialAssetSchema
     variants:
     - AdjacentPolygonsSchema
+    - BuildingOutlineSchema
     - GDALFillNoDataSchema
+    - GriddedRasterSchema
+    - GriddedPointCloudSchema
     - LINZPrimaryParcelsSchema
     - LINZPropertyTitlesSchema
     - LabeledPointCloudSchema
@@ -74,6 +82,7 @@ schema_enum! {
     - RasterDifferenceSchema
     - RasterPolygonIntersectionSchema
     - RasterFromPointCloudSchema
+    - ReprojectedPointCloudSchema
     - PolygonCollectionWithinPolygonSchema
     - PolygonCollectionZonalStatsSchema
     - PolygonCollectionStatsFilterSchema
@@ -91,4 +100,5 @@ schema_enum! {
     - TAODaSilvaSegmentationSchema
     - TAOToEcoObjectSchema
     - TreeDetectionSchema
+    - WaterBodiesSchema
 }

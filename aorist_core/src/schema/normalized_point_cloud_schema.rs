@@ -20,4 +20,7 @@ derived_schema! {
       - raster: RasterAsset,
     attributes:
       path: KeyStringIdentifier("File Path", false)
+    fields:
+      nlas_filter_z_min: FloatValue,
+      nlas_filter_z_max: FloatValue
 }

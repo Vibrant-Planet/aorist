@@ -9,7 +9,7 @@ use std::fmt::Debug;
 use uuid::Uuid;
 
 #[aorist]
-pub struct ShapefileEncoding {
+pub struct GeoJSONEncoding {
     #[constrainable]
     pub compression: Option<AoristRef<DataCompression>>,
 }

@@ -4,6 +4,7 @@ use crate::concept::{AoristRef, WrappedConcept};
 use crate::encoding::csv_encoding::*;
 use crate::encoding::gdb_encoding::*;
 use crate::encoding::geotiff_encoding::*;
+use crate::encoding::geojson_encoding::*;
 use crate::encoding::gpkg_encoding::*;
 use crate::encoding::json_encoding::*;
 use crate::encoding::kml_encoding::*;
@@ -31,6 +32,7 @@ use uuid::Uuid;
 pub enum Encoding {
     CSVEncoding(AoristRef<CSVEncoding>),
     JSONEncoding(AoristRef<JSONEncoding>),
+    GeoJSONEncoding(AoristRef<GeoJSONEncoding>),
     NewlineDelimitedJSONEncoding(AoristRef<NewlineDelimitedJSONEncoding>),
     ORCEncoding(AoristRef<ORCEncoding>),
     TSVEncoding(AoristRef<TSVEncoding>),
@@ -54,6 +56,7 @@ impl Encoding {
             // TODO: need to change this to also be optional
             Self::TSVEncoding(x) => x.0.read().unwrap().header.clone(),
             Self::JSONEncoding(_) => None,
+            Self::GeoJSONEncoding(_) => None,
             Self::ORCEncoding(_) => None,
             Self::ONNXEncoding(_) => None,
             Self::GDBEncoding(_) => None,
@@ -78,16 +81,17 @@ impl Encoding {
             Self::LASEncoding(x) => x.0.read().unwrap().compression.clone(),
             Self::GeoTiffEncoding(x) => x.0.read().unwrap().compression.clone(),
             Self::TiffEncoding(x) => x.0.read().unwrap().compression.clone(),
+            Self::GeoJSONEncoding(x) => x.0.read().unwrap().compression.clone(),
             Self::WKTEncoding(x) => x.0.read().unwrap().compression.clone(),
             Self::XMLEncoding(x) => x.0.read().unwrap().compression.clone(),
             Self::KMLEncoding(x) => x.0.read().unwrap().compression.clone(),
             Self::GPKGEncoding(x) => x.0.read().unwrap().compression.clone(),
+            Self::ShapefileEncoding(x) => x.0.read().unwrap().compression.clone(),
             Self::JSONEncoding(_) => None,
             Self::ORCEncoding(_) => None,
             Self::ONNXEncoding(_) => None,
             Self::SQLiteEncoding(_) => None,
             Self::NewlineDelimitedJSONEncoding(_) => None,
-            Self::ShapefileEncoding(_) => None,
         }
     }
     pub fn get_default_file_extension(&self) -> String {
@@ -105,6 +109,7 @@ impl Encoding {
             Self::GPKGEncoding(_) => "gpkg".to_string(),
             Self::ShapefileEncoding(_) => "shp".to_string(),
             Self::JSONEncoding(_) => "json".to_string(),
+            Self::GeoJSONEncoding(_) => "json".to_string(),
             Self::ORCEncoding(_) => "orc".to_string(),
             Self::ONNXEncoding(_) => "onnx".to_string(),
             Self::SQLiteEncoding(_) => "sqlite".to_string(),
@@ -138,11 +143,19 @@ impl PyEncoding {
                 Some(y) => Some(PyDataCompression { inner: y.clone() }),
                 None => None,
             },
+            Encoding::ShapefileEncoding(x) => match &x.0.read().unwrap().compression {
+                Some(y) => Some(PyDataCompression { inner: y.clone() }),
+                None => None,
+            },
             Encoding::WKTEncoding(x) => match &x.0.read().unwrap().compression {
                 Some(y) => Some(PyDataCompression { inner: y.clone() }),
                 None => None,
             },
             Encoding::XMLEncoding(x) => match &x.0.read().unwrap().compression {
+                Some(y) => Some(PyDataCompression { inner: y.clone() }),
+                None => None,
+            },
+            Encoding::GeoJSONEncoding(x) => match &x.0.read().unwrap().compression {
                 Some(y) => Some(PyDataCompression { inner: y.clone() }),
                 None => None,
             },
@@ -161,7 +174,6 @@ impl PyEncoding {
             Encoding::JSONEncoding(_) => None,
             Encoding::ORCEncoding(_) => None,
             Encoding::ONNXEncoding(_) => None,
-            Encoding::ShapefileEncoding(_) => None,
             Encoding::SQLiteEncoding(_) => None,
             Encoding::NewlineDelimitedJSONEncoding(_) => None,
         })
