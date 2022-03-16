@@ -1,5 +1,6 @@
 use crate::attributes::*;
 use crate::concept::{AoristConcept, AoristRef, ConceptEnum, WrappedConcept};
+use crate::schema::merged_crown_hull_collection_schema::*;
 use crate::schema::adjacent_polygons_schema::*;
 use crate::schema::building_outline_schema::*;
 use crate::schema::gdal_fillnodata_schema::*;
@@ -101,4 +102,5 @@ schema_enum! {
     - TAOToEcoObjectSchema
     - TreeDetectionSchema
     - WaterBodiesSchema
+    - MergedCrownHullCollectionSchema
 }

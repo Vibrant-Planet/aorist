@@ -133,3 +133,7 @@ pub use tree_detection_schema::*;
 pub use undefined_tabular_schema::*;
 pub use vision_asset_schema::*;
 pub use water_bodies_schema::*;
+
+
+mod merged_crown_hull_collection_schema;
+pub use merged_crown_hull_collection_schema::*;

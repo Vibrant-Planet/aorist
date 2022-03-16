@@ -293,5 +293,6 @@ register_concept!(
     GriddedPointCloudSchema,
     WaterBodiesSchema,
     BuildingOutlineSchema,
-    GeoJSONEncoding
+    GeoJSONEncoding,
+    MergedCrownHullCollectionSchema
 );
